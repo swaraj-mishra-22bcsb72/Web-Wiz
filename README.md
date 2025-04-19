@@ -135,5 +135,4 @@ A complete list of themes is available in the rulebook. Examples include:
 
 May your designs be pixel-perfect and your imagination infinite.
 
-**Happy coding!**  
-— Team WebWiz
+**Happy coding!**
