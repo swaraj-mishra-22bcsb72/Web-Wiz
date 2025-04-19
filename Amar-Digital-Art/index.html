@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gallery</title>
+	<link rel="stylesheet"href="fonts.css">
+	<style type="text/css">
+		*{
+			margin: 0;
+			outline: none;
+			user-select: none;
+		}
+		body{
+			background: #202020;
+			font-family: nevis;
+			overflow-x: hidden;
+		}
+		p{
+			margin: 10px 50px;
+			color:#cccccc;
+			font-family: google sans;
+		}
+		big{
+			color:white;
+			font-weight: bold;
+			display: block;
+			margin:50px 0 0 50px;
+			font-size: 30px;
+		}
+		.box{
+			width: 50vw;
+			margin-left:25vw;
+			margin-top:5vh;
+			display: flex;
+			flex-flow: row nowrap;
+			align-items:center;
+			justify-content: space-between;
+		}
+		.box > button{
+			padding:7px 15px;
+			border:0;
+			border-radius: 5px;
+			box-shadow: 0 3px 4px black;
+			background: #1a1a1a;
+			color:white;
+			font-family: calibri;
+			font-weight: bold;
+			font-size: 17px;
+			cursor: pointer;
+		}
+		.menu{
+			width: 100vw;
+			position: relative;
+		}
+		.menu > div{
+			position: absolute;
+			width: 65%;
+			margin-left:17.5%;
+			box-sizing: border-box;
+			display: grid;
+			grid-template-columns: auto auto auto;
+			justify-items: center;
+		}
+		.card{
+			width: 20vw;
+			margin: 2vw 0;
+			border-radius: 10px;
+			background: #1a1a1a;
+			cursor: pointer;
+		}
+		.icon{
+			background: #FF6B6B;
+			background-size: cover;
+			border-radius:10px 10px 0 0;
+			width:20vw;
+			height:15vw;
+		}
+		.info{
+			padding: 15px;
+			box-sizing: border-box;
+			color:black;
+		}
+		.info p{
+			color: #1a1a1a;
+			font-family: calibri;
+			font-size: 15px;
+			margin-top: 10px;
+			margin-left:0;
+		}
+		address{
+			width:50vw;
+			margin-left:25vw;
+			color:#f2f3f5;
+			font-family: calibri;
+			text-align: center;
+		}
+		.screen{
+			width: 100vw;
+			height: 100vh;
+			bottom: 0;
+			position: fixed;
+			background: rgba(0,0,0,0.9);
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-evenly;
+			align-items: center;
+			overflow-x: hidden;
+			display: none;
+		}
+		.image{
+			width: 80vw;
+			height:80vh;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: #1a1a1a;
+			box-shadow: 0 3px 5px black;
+		}
+		.screen button{
+			border:0;
+			background: #202020;
+			color:#cccccc;
+			font-family: space;
+			padding:10px 15px;
+			font-weight: bolder;
+			cursor: pointer;
+		}
+		@keyframes artwork{
+			0%{ background-color:salmon }
+			33%{ background-color:dodgerblue }
+			66%{ background-color:goldenrod }
+			100%{ background-color:salmon }
+		}
+		.btn-grp{
+			margin-left:50px;
+			display: flex;
+			flex-flow: row nowrap;
+			column-gap: 20px;
+			display: none;
+		}
+		.btn-grp > button{
+			padding:7px 16px;
+			border:0;
+			border-radius: 4px;
+			color:white;
+			background: #1a1a1a;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<big>Digital Art Gallery</big>
+	<p>An gallery for Indie NFT Artist Portfolio that conatins various Abstract, Pixel, 3D Collections.</p><br>
+	<div class="btn-grp"><button style="background: #cccccc;color:black">All</button><button>Nature</button><button>Material</button></div><br>
+	<div class="box">
+		<button style="background: #A0E7E5;color:black"onclick="change(0)">Abstract</button>
+		<button onclick="change(1)">Pixel</button>
+		<button onclick="change(2)">3D</button>
+	</div><br><br><br>
+	<address>Abstract art doesn’t try to represent the real world. Instead, it uses shapes, colors, textures, and forms to create meaning or evoke emotions.</address>
+	<div class="menu">
+		<div class="abs">
+			<div id="vert">
+				<div class="card">
+					<div class="icon"style="background-image:url(a1.jpeg);"onclick="showScreen('a1.jpeg');"></div>
+					<div class="info">
+						<strong>Forest</strong>
+						<p>Walking alone among the bushes in the morning.Walking alone among the bushes in the morning.Walking alone among the bushes in the morning.Walking alone among the bushes in the morning.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(a2.jpeg);"onclick="showScreen('a2.jpeg');"></div>
+					<div class="info">
+						<strong>Color bricks</strong>
+						<p>Bricks with randomized colors that represents emotions.</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(a3.jpeg);"onclick="showScreen('a3.jpeg');"></div>
+					<div class="info">
+						<strong>Cuts on wall</strong>
+						<p>Looks like someone is irritated with a lagging matter.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(a4.jpeg);"onclick="showScreen('a4.jpeg');"></div>
+					<div class="info">
+						<strong>Music mania</strong>
+						<p>Explore the musical world with this art.</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(a5.jpeg);"onclick="showScreen('a5.jpeg');"></div>
+					<div class="info">
+						<strong>Fire spread</strong>
+						<p>Looks like fire has spread everywhere in the nature.Looks like fire has spread everywhere in the nature.Looks like fire has spread everywhere in the nature.Looks like fire has spread everywhere in the nature.Looks like fire has spread everywhere in the nature.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(a6.jpeg);"onclick="showScreen('a6.jpeg');"></div>
+					<div class="info">
+						<strong>Microbes</strong>
+						<p>Just tiny microbes enjoying their life.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pixel"style="display: none;">
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(p1.jpeg);"onclick="showScreen('p1.jpeg');"></div>
+					<div class="info">
+						<strong>Good night</strong>
+						<p>A Good Night for the whole town.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(p2.jpeg);"onclick="showScreen('p2.jpeg');"></div>
+					<div class="info">
+						<strong>Halo 2</strong>
+						<p>The release of halo2 made xbox popular.</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(p3.jpeg);"onclick="showScreen('p3.jpeg');"></div>
+					<div class="info">
+						<strong>Horrible sky</strong>
+						<p>Looks like a inscription of a dragon in night sky.Looks like a inscription of a dragon in night sky.Looks like a inscription of a dragon in night sky.Looks like a inscription of a dragon in night sky.Looks like a inscription of a dragon in night sky.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(p4.jpeg);"onclick="showScreen('p4.jpeg');"></div>
+					<div class="info">
+						<strong>Mountains</strong>
+						<p>The real beauty of nature can seen in the mountains.</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(p5.jpeg);"onclick="showScreen('p5.jpeg');"></div>
+					<div class="info">
+						<strong>Cliff</strong>
+						<p>There is no shortcut to success.</p>
+					</div>
+				</div>
+				<div class="card"id="artwork">
+					<div class="icon"style="background-image:url(p6.jpeg);"onclick="showScreen('p6.jpeg');"></div>
+					<div class="info">
+						<strong>Natural world</strong>
+						<p>Looks like a Legend of Zelda game after link has awakened.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="3d"style="display: none;">
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(31.jpeg);"onclick="showScreen('31.jpeg');"></div>
+					<div class="info">
+						<strong>Maze</strong>
+						<p>A room but a maze.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(32.jpeg);"onclick="showScreen('32.jpeg');"></div>
+					<div class="info">
+						<strong>Hall</strong>
+						<p>A decorative hall for keeping delicated things.</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(33.jpeg);"onclick="showScreen('33.jpeg');"></div>
+					<div class="info">
+						<strong>Room</strong>
+						<p>Looks like a home museum.Looks like a home museum.Looks like a home museum.Looks like a home museum.Looks like a home museum.Looks like a home museum.Looks like a home museum.Looks like a home museum.Looks like a home museum.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(34.jpeg);"onclick="showScreen('34.jpeg');"></div>
+					<div class="info">
+						<strong>GTA VC</strong>
+						<p>GTA VC Ocean Beach $20000.</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="icon"style="background-image:url(35.jpeg);"onclick="showScreen('35.jpeg');"></div>
+					<div class="info">
+						<strong>Fairy world</strong>
+						<p>Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.Crossing the VFX Bridge.</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon"style="background-image:url(36.jpeg);"onclick="showScreen('36.jpeg');"></div>
+					<div class="info">
+						<strong>Showcase</strong>
+						<p>This says that life provides multiple options.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="screen">
+		<button>◀</button>
+		<div class="image"></div>
+		<button>▶</button>
+	</div>
+</body>
+<script type="text/javascript">
+	var mode = 0,animate = false,img;
+	var colors = ["#A0E7E5","#ccb3ff","#ffff66"];
+	var data = ["Abstract art doesn’t try to represent the real world. Instead, it uses shapes, colors, textures, and forms to create meaning or evoke emotions.","Pixel art is a form of digital art where images are created and edited at the pixel level. It has a retro, 8-bit or 16-bit video game feel.","3D art involves creating three-dimensional objects or environments using modeling software. These artworks often appear realistic or hyper-stylized."];
+	let touchStartX = 0;
+	let touchEndX = 0;
+	const swipeZone = $('.screen');
+	swipeZone.addEventListener('touchstart', (e) => {
+	    touchStartX = e.changedTouches[0].screenX;
+	});
+	const now = new Date();
+	const hour = now.getHours();
+	if(hour >= 5 && hour < 12){
+		
+	}
+	else if(hour >= 12 && hour < 17){
+		$("#artwork").style.animation = "artwork 2s linear infinite";
+	}
+	else{
+		
+	}
+	swipeZone.addEventListener('touchend', (e) => {
+	    touchEndX = e.changedTouches[0].screenX;
+	    handleSwipe();
+	});
+	function handleSwipe() {
+	    const swipeDistance = touchEndX - touchStartX;
+
+	    if (swipeDistance > 50) {
+	    	if(img[1] != "1"){
+				img = img[0] + (parseInt(img[1]) - 1) + ".jpeg";
+			}
+			if(img == "p6.jpeg"){
+				$(".image").style.animation = "artwork 2s linear infinite";
+			}
+			else{
+				$(".image").style.animation = "";
+			}
+			$(".image").style.backgroundImage = "url("+img+")";
+	    } else if (swipeDistance < -50) {
+			if(img[1] != "6"){
+				img = img[0] + (parseInt(img[1]) + 1) + ".jpeg";
+			}
+			if(img == "p6.jpeg"){
+				$(".image").style.animation = "artwork 2s linear infinite";
+			}
+			else{
+				$(".image").style.animation = "";
+			}
+			$(".image").style.backgroundImage = "url("+img+")";
+	    }
+	}
+	function $(val){
+		return document.querySelector(val);
+	}
+	for(j = 0;j < 3;j++){
+		for(i = 0;i <= 2;i++){
+			$(".menu").children[j].children[i].children[0].style.backgroundColor = colors[j];
+			$(".menu").children[j].children[i].children[1].style.backgroundColor = colors[j];
+		}
+	}
+	function showScreen(val){
+		img = val;
+		if(val == "p6.jpeg"){
+			$(".image").style.animation = "artwork 2s linear infinite";
+		}
+		else{
+			$(".image").style.animation = "";
+		}
+		$(".image").style.backgroundImage = "url("+val+")";
+		$(".screen").style.display = "flex";
+		$(".screen").animate([{
+			opacity:0
+		},{
+			opacity:1
+		}],{
+			duration:300,
+			fill:"both"
+		});
+	}
+	$(".screen").addEventListener("click",(e) => {
+		if(e.target == $(".screen") && !animate){
+			animate = true;
+			$(".screen").animate([{
+				opacity:1
+			},{
+				opacity:0
+			}],{
+				duration:300,
+				fill:"both"
+			});
+			setTimeout(() => {
+				animate = false;
+				$(".screen").style.display = "none";
+			},310);
+		}
+		else if(e.target == $(".screen").children[0]){
+			if(img[1] != "1"){
+				img = img[0] + (parseInt(img[1]) - 1) + ".jpeg";
+			}
+			if(img == "p6.jpeg"){
+				$(".image").style.animation = "artwork 2s linear infinite";
+			}
+			else{
+				$(".image").style.animation = "";
+			}
+			$(".image").style.backgroundImage = "url("+img+")";
+		}
+		else if(e.target == $(".screen").children[2]){
+			if(img[1] != "6"){
+				img = img[0] + (parseInt(img[1]) + 1) + ".jpeg";
+			}
+			if(img == "p6.jpeg"){
+				$(".image").style.animation = "artwork 2s linear infinite";
+			}
+			else{
+				$(".image").style.animation = "";
+			}
+			$(".image").style.backgroundImage = "url("+img+")";
+		}
+	});
+	function change(val){
+		if(mode != val && !animate){
+			animate = true;
+			$("address").animate([{
+				opacity:1
+			},{
+				opacity:0
+			},{
+				opacity:1
+			}],{
+				duration:300,
+				fill:"both"
+			});
+			for(i = 0;i <= 2;i++){
+				$(".menu").children[mode].children[i].children[0].animate([{
+					transform:"rotateY(0deg)"
+				},{
+					transform:"rotateY(-45deg)"
+				}],{
+					duration:300,
+				});
+				$(".menu").children[val].children[i].children[0].animate([{
+					transform:"rotateY(45deg)"
+				},{
+					transform:"rotateY(0deg)"
+				}],{
+					duration:300,
+				});
+				
+			}
+			setTimeout(() => {
+				$("address").innerHTML = data[val];
+			},140);
+			$(".box").children[val].animate([{
+				background:"transparent",
+				color:"white"
+			},{
+				background:colors[val],
+				color:"black"
+			}],{
+				duration:300,
+				fill:"both"
+			});
+			$(".box").children[mode].animate([{
+				background:colors[mode],
+				color:"black"
+			},{
+				background:"transparent",
+				color:"white"
+			}],{
+				duration:300,
+				fill:"both"
+			});
+			$(".menu").children[val].style.display = "grid";
+			$(".menu").children[mode].animate([{
+				opacity:1,
+			},{
+				opacity:0,
+			}],{
+				duration:500,
+				fill:"both"
+			});
+			$(".menu").children[val].animate([{
+				opacity:0,
+			},{
+				opacity:1,
+			}],{
+				duration:300,
+				fill:"both"
+			});
+			setTimeout(() => { animate = false;$(".menu").children[mode].style.display = "none";mode = val; },320);
+		}
+	}
+</script>
+</html>
