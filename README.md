@@ -46,7 +46,7 @@ git checkout -b priya-cosmic-web
 ---
 
 ### 4. **Build Your Project**
-Start building your theme-specific design inside the `/submissions` folder:
+Start building your theme-specific design inside the `/your-name-theme-name` folder:
 
 ```
 webwiz-2.0/
